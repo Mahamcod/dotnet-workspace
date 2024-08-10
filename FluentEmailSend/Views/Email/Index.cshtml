@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Send Test Email";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<p>This page allows you to send a test email using FluentEmail.</p>
+
+<form asp-controller="Email" asp-action="Index" method="post">
+    <button type="submit" class="btn btn-primary">Send Email</button>
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <div class="alert alert-info mt-3">
+        @ViewBag.Message
+    </div>
+}

@@ -1,0 +1,26 @@
+﻿@@model Parcticesubmission.Models.ContactViewModel
+
+<form action="@Url.Action("SubmitContact", "Contact")" method="post" enctype="multipart/form-data">
+    @Html.AntiForgeryToken()
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email)
+        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Email)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UploadedFile)
+        <input type="file" name="UploadedFile" class="form-control" />
+        @Html.ValidationMessageFor(model => model.UploadedFile)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+

@@ -1,0 +1,2 @@
+D:\.Net Workspace\WEBSITE\obj\Debug\WEBSITE.csproj.AssemblyReference.cache
+D:\.Net Workspace\WEBSITE\obj\Debug\WEBSITE.csproj.CoreCompileInputs.cache

@@ -1,0 +1,37 @@
+﻿@model PracticeDocUpload.Models.Contact
+
+@{
+    ViewBag.Title = "Submit Contact";
+}
+
+<h2>Submit Contact</h2>
+
+@using (Html.BeginForm("SubmitContact", "Contact", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-group">
+        @Html.LabelFor(model => model.Name)
+        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Name)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Email)
+        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Email)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Phone)
+        @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.Phone)
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.FilePath) <!-- This can be omitted if FilePath is not shown -->
+        <input type="file" name="UploadedFile" class="form-control" />
+        @Html.ValidationMessageFor(model => model.FilePath)
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+}

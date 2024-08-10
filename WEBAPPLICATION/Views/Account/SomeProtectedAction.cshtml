@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "SomeProtectedAction";
+}
+
+<h2>SomeProtectedAction</h2>
+
+@if (Session["UserID"] != null)
+{
+    <p>Welcome, @ViewBag.UserName!</p>
+}
+else
+{
+    <p>You are not logged in.</p>
+}

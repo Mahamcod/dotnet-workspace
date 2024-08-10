@@ -1,0 +1,104 @@
+﻿@*@using Microsoft.AspNet.Identity
+    @if (Request.IsAuthenticated)
+    {
+        using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+        {
+        @Html.AntiForgeryToken()
+
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
+        </ul>
+        }
+    }
+    else
+    {
+        <ul class="nav navbar-nav navbar-right">
+            <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
+            <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        </ul>
+    }*@
+
+
+
+
+
+
+@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
+    {
+        @Html.AntiForgeryToken()
+        <ul class="nav navbar-nav navbar-right">
+            <li class="user-greeting">
+                @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
+            </li>
+            <li>
+                <a href="javascript:document.getElementById('logoutForm').submit()" class="nav-link">Log off</a>
+            </li>
+        </ul>
+    }
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>
+            @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "nav-link" })
+        </li>
+        <li>
+            @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", @class = "nav-link" })
+        </li>
+    </ul>
+}
+
+<style>
+    /* Navbar link styling */
+    .nav-link {
+        color: white; /* Default text color */
+        font-weight: 500; /* Slightly bolder text for better readability */
+        text-transform: uppercase; /* Uppercase text for a more professional look */
+        padding: 10px 15px; /* Padding around the text */
+        border-radius: 4px; /* Rounded corners for a softer look */
+        transition: color 0.3s, background-color 0.3s; /* Smooth transition for color changes */
+        text-decoration: none; /* Remove underline from links */
+    }
+
+        /* Hover effect */
+        .nav-link:hover {
+            color: #ffffff; /* Slightly lighter text color on hover */
+            background-color: rgba(255, 255, 255, 0.2); /* Light background on hover for better visibility */
+        }
+
+    /* User greeting styling */
+    .user-greeting a {
+        color: white; /* Text color for user greeting */
+        font-weight: 500; /* Slightly bolder text for readability */
+    }
+
+        .user-greeting a:hover {
+            color: #ffffff; /* Lighter text color on hover */
+        }
+</style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
